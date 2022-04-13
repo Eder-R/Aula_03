@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CRUD de Livros </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Listagem de Livros</h1>
+    <p>Livros ja cadastrados no sistema</p>
+    <table>
+      <thead>
+        <tr style="background-color: #CCC;">
+          <td style="width: 50%;">Titulo</td>
+          <td style="width: 15%;">Ano</td>
+          <td style="width: 15%;">Genero</td>
+          <td>Ações</td>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% if (!registros || registros.lenght == 0) { %>
+          <tr>
+            <td colspan="4">Não há registros</td>
+          </tr>
+        <% } else { 
+          registros.forEach(function(livro){ %>
+            <tr>
+              <td><%= livro.livtitulo %></td>
+              <td><%= livro.livano %></td>
+              <td><%= livro.gencodigo %></td>
+              <td>Alterar | Apagar</td>
+            </tr>
+          <% })} %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4">
+            <br>
+            <a href="/livroNovo" style="color:black;">Cadastrar livro</a>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
