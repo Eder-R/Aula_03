@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CRUD de Livros </title>
+    <title>Livraria</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Listagem de Livros</h1>
-    <p>Livros ja cadastrados no sistema</p>
+
+    <h1>Listagem de livros</h1>
+    <p>Livros já cadastrados</p>
+
     <table>
       <thead>
         <tr style="background-color: #CCC;">
-          <td style="width: 50%;">Titulo</td>
-          <td style="width: 15%;">Ano</td>
-          <td style="width: 15%;">Genero</td>
+          <td>Título</td>
+          <td>Ano</td>
+          <td>Gênero</td>
           <td>Ações</td>
         </tr>
       </thead>
-      
+
       <tbody>
-        <% if (!registros || registros.lenght == 0) { %>
+        <% if (!registros || registros.length == 0 ) { %>
           <tr>
-            <td colspan="4">Não há registros</td>
+            <td colspan="4">Nenhum registro cadastrado</td>
           </tr>
         <% } else { 
           registros.forEach(function(livro){ %>
-            <tr>
-              <td><%= livro.livtitulo %></td>
-              <td><%= livro.livano %></td>
-              <td><%= livro.gencodigo %></td>
-              <td>Alterar | Apagar</td>
-            </tr>
-          <% })} %>
+          <tr>
+            <td><%= livro.livtitulo %> </td>
+            <td><%= livro.livano %></td>
+            <td><%= livro.gencodigo %></td>
+            <td>
+              <a href="/alteraLivro/<%= livro.livcodigo %>">Alterar</a> | 
+              <a href="/apagaLivro/<%= livro.livcodigo %>" onclick="return confirm('Confirma exclusão?');">Apagar</a>
+            </td>
+          </tr>
+        <% })} %>
       </tbody>
       <tfoot>
         <tr>
           <td colspan="4">
             <br>
-            <a href="/livroNovo" style="color:black;">Cadastrar livro</a>
+            <a href="/novoLivro">Cadastrar livro</a>
           </td>
         </tr>
       </tfoot>
     </table>
+
   </body>
 </html>

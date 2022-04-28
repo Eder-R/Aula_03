@@ -5,7 +5,7 @@
  */
 global.db = require('../db');
 var app = require('../app');
-var debug = require('debug')('aula-03:server');
+var debug = require('debug')('aula04:server');
 var http = require('http');
 
 /**
